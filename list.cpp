@@ -4,7 +4,6 @@
 //
 //  Created by 孙培养 on 2016/11/20.
 //  Copyright © 2016年 sun. All rights reserved.
-//  链表功能
 //
 #include <iostream>
 #include <stdio.h>
@@ -56,6 +55,44 @@ bool printList(Element* head)
 
 }
 
+bool deleteElement(Element** head, Element* deleteMe)
+{
+    Element* elem;
+    if (!head || !*head || !deleteMe)
+        return false;
+    
+    elem = *head;
+    if (deleteMe == *head)
+    {
+        *head = elem->next;
+        free(deleteMe);
+        return true;
+    }
+    
+    while (elem->next == deleteMe)
+    {
+        elem->next = deleteMe->next;
+        free(deleteMe);
+        return true;
+    }
+    elem = elem->next;
+    
+    return false;
+}
+
+void deleteList(Element** head)
+{
+    Element* deleteMe = *head;
+    
+    while (deleteMe)
+    {
+        Element* next = deleteMe->next;
+        free(deleteMe);
+        deleteMe = next;
+    }
+    
+    return;
+}
 
 int main(int argc, const char * argv[]) {
     // insert code here...
