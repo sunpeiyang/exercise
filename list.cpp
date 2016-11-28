@@ -2,7 +2,7 @@
 //  main.cpp
 //  list
 //
-//  Created by 孙培养 on 2016/11/20.
+//  Created by sunpeiyang on 2016/11/20.
 //  Copyright © 2016年 sun. All rights reserved.
 //
 #include <iostream>
